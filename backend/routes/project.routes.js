@@ -1,41 +1,22 @@
 import { Router } from 'express';
-import { body } from 'express-validator';
 import * as projectController from '../controllers/project.controller.js';
 import * as authMiddleWare from '../middleware/auth.middleware.js';
 
 const router = Router();
 
+// Route for creating a project. Validations run inside the controller.
+router.post('/create', authMiddleWare.authUser, projectController.createProject);
 
-router.post('/create',
-    authMiddleWare.authUser,
-    body('name').isString().withMessage('Name is required'),
-    projectController.createProject
-)
+// Route for getting all projects for the logged-in user.
+router.get('/all', authMiddleWare.authUser, projectController.getAllProject);
 
-router.get('/all',
-    authMiddleWare.authUser,
-    projectController.getAllProject
-)
+// Route for adding user(s) to a project.
+router.put('/add-user', authMiddleWare.authUser, projectController.addUserToProject);
 
-router.put('/add-user',
-    authMiddleWare.authUser,
-    body('projectId').isString().withMessage('Project ID is required'),
-    body('users').isArray({ min: 1 }).withMessage('Users must be an array of strings').bail()
-        .custom((users) => users.every(user => typeof user === 'string')).withMessage('Each user must be a string'),
-    projectController.addUserToProject
-)
+// Route for retrieving a project by its ID.
+router.get('/get-project/:projectId', authMiddleWare.authUser, projectController.getProjectById);
 
-router.get('/get-project/:projectId',
-    authMiddleWare.authUser,
-    projectController.getProjectById
-)
-
-router.put('/update-file-tree',
-    authMiddleWare.authUser,
-    body('projectId').isString().withMessage('Project ID is required'),
-    body('fileTree').isObject().withMessage('File tree is required'),
-    projectController.updateFileTree
-)
-
+// Route for updating a project's file tree.
+router.put('/update-file-tree', authMiddleWare.authUser, projectController.updateFileTree);
 
 export default router;
