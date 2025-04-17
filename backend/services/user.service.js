@@ -21,6 +21,8 @@ export const createUser = async ({
 
 }
 
+
+//get all users except the logged in user
 export const getAllUsers = async ({ userId }) => {
     const users = await userModel.find({
         _id: { $ne: userId }
