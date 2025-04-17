@@ -120,7 +120,7 @@ The application will be available at:
 - Browser-based development environment with WebContainers
 - Real-time preview of web applications
 - Integrated terminal access
-- Package management in the browser
+- Package management in the browser itself
 
 ## Site glimse
 https://drive.google.com/file/d/1HkDQZIAgJ1lhsPN06NYjs59QYqqduAO0/view?usp=drive_link
