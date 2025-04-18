@@ -1,4 +1,4 @@
-# CodeCollab AI
+# genAlpha-i
 
 An AI-powered collaborative coding platform that enables real-time team development with intelligent assistance. Built with React and Node.js, this platform combines the power of Google AI with real-time collaboration features to enhance team productivity. Teams can develop, test, and run web applications directly in the browser using WebContainers technology.
 
@@ -111,15 +111,14 @@ The application will be available at:
 - JWT Authentication - Secure user sessions
 
 ## Key Features
-- Real-time collaborative code editing
+- Collaborative code editing
 - AI-powered code suggestions and completions
-- Live code sharing and pair programming
+- Code sharing and pair programming
 - Integrated team chat
 - Syntax highlighting and code formatting
 - Real-time debugging assistance
 - Browser-based development environment with WebContainers
 - Real-time preview of web applications
-- Integrated terminal access
 - Package management in the browser itself
 
 ## Site glimse
